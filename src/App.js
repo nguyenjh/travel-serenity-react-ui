@@ -3,9 +3,10 @@ import {
     Route,
     Routes,
 } from "react-router-dom"
-import Home from "./home/Home";
-import List from "./list/List";
-import Hotel from "./hotel/Hotel";
+
+import Home from "./pages/home/Home.jsx";
+import List from "./pages/list/List.jsx";
+import Hotel from "./pages/hotel/Hotel.jsx";
 
 function App() {
     return (
