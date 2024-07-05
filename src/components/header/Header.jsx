@@ -8,6 +8,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from "date-fns"
 
 const Header = ({type}) => {
+    // calender function
     const [openDate, setOpenDate] = useState(false)
     const [date, setDate] = useState([
         {
@@ -16,12 +17,14 @@ const Header = ({type}) => {
           key: 'selection'
         }
     ]);
+    // opening adult/children/room option
     const [openOptions, setOpenOptions] = useState(false)
     const [options, setOptions] = useState({
         adult: 1,
         children: 0,
         room: 1
     })
+    // increase/decrease adult/children/room option
     const handleOption = (name, operation) =>{
         setOptions(prev=>{return {
             ...prev, 
@@ -30,25 +33,31 @@ const Header = ({type}) => {
     }
 
     return (
+        // header
         <div className="header">
             <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
                 <div className="headerList">
+                    {/* stays */}
                     <div className="headerListItem active">
                         <FontAwesomeIcon icon={faBed} />
                         <span>Stays</span>
                     </div>
+                    {/* flights */}
                     <div className="headerListItem">
                         <FontAwesomeIcon icon={faPlane} />
                         <span>Flights</span>
                     </div>
+                    {/* car rentals */}
                     <div className="headerListItem">
                         <FontAwesomeIcon icon={faCar} />
                         <span>Car Rentals</span>
                     </div>
+                    {/* attractions */}
                     <div className="headerListItem">
                         <FontAwesomeIcon icon={faBed} />
                         <span>Attractions</span>
                     </div>
+                    {/* airport taxis */}
                     <div className="headerListItem">
                         <FontAwesomeIcon icon={faTaxi} />
                         <span>Airport Taxis</span>
@@ -60,6 +69,8 @@ const Header = ({type}) => {
                 <p className="headerDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolorum iure explicabo eveniet aut minus?</p>
                 <button className="headerBtn">Sign In / Register</button>
                 <div className="headerSearch">
+
+                    {/* search bar */}
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faBed} className="headerIcon"/>
                         <input 
@@ -68,6 +79,8 @@ const Header = ({type}) => {
                             className="headerSearchInput"
                         />
                     </div>
+
+                    {/* calendar */}
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faCalendarDays} className="headerIcon"/>
                         <span onClick={()=>setOpenDate(!openDate)} className="headerSearchText">{`${format(
@@ -82,10 +95,13 @@ const Header = ({type}) => {
                             className="date"
                         />}
                     </div>
+
+                    {/* adult/children/room option */}
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faPerson} className="headerIcon"/>
                         <span onClick={()=>setOpenOptions(!openOptions)} className="headerSearchText">{`${options.adult} adult • ${options.children} children • ${options.room} room`}</span>
                             {openOptions && <div className="options">
+                                {/* adult */}
                                 <div className="optionItem">
                                     <span className="optionText">Adult</span>
                                     <div className="optionCounter">
@@ -94,7 +110,8 @@ const Header = ({type}) => {
                                         <button className="optionCounterBtn" onClick={()=>handleOption("adult", "i")}>+</button>
                                     </div>
                                 </div>
-
+                                
+                                {/* children */}
                                 <div className="optionItem">
                                     <span className="optionText">Children</span>
                                     <div className="optionCounter">
@@ -104,6 +121,7 @@ const Header = ({type}) => {
                                     </div>
                                 </div>
 
+                                {/* room */}
                                 <div className="optionItem">
                                     <span className="optionText">Room</span>
                                     <div className="optionCounter">
@@ -114,6 +132,8 @@ const Header = ({type}) => {
                                 </div>
                             </div>}
                     </div>
+
+                    {/* search btn */}
                     <div className="headerSearchItem">
                         <button className="headerBtn">Search</button>
                     </div>
