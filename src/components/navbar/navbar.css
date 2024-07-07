@@ -19,9 +19,11 @@
 }
 
 .navButton{
-    margin: 20px;
+    margin: 10px;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     color: #0D1F22;
+    background-color: white;
+    font-weight: 500;
 }
