@@ -1,6 +1,8 @@
 import "./list.css"
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
+import MailList from '../../components/mailList/MailList'
+import Footer from '../../components/footer/Footer'
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
 import { format } from "date-fns"
@@ -88,6 +90,10 @@ const List = () => {
                         <SearchItem/>
                         <SearchItem/>
                     </div>
+                </div>
+                <div className="bottomContainer">
+                    <MailList/>
+                    <Footer/>
                 </div>
             </div>
         </div>
