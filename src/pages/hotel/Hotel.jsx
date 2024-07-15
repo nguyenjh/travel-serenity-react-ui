@@ -6,31 +6,18 @@ import Footer from "../../components/footer/Footer.jsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleArrowLeft, faCircleArrowRight, faCircleXmark, faLocationDot } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
+import useFetch from "../../hooks/useFetch.js"
+import { useLocation } from "react-router-dom"
 
 const Hotel = () => {
+    const location = useLocation()
+    // grabs third segment in location path i.e. /hotels/6690a4a1f99e09c0718be054 so [0]/[1]/[2]
+    const id = location.pathname.split("/")[2]
+
     const[slideNum, setSlideNum] = useState(0)
     const[open, setOpen] = useState(false)
 
-    const photos = [
-        {
-            src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/34405073.jpg?k=3cd3ba4802cdd33470a32b3bebcb1884ecb11b33f0286e2fdb8b54ad8f981912&o=&hp=1"
-        },
-        {
-            src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/74529947.jpg?k=4ba88803157f6ff0afd788a52427267074302d51dd8d5759c43a569bf249c8d4&o=&hp=1"
-        },
-        {
-            src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/34405116.jpg?k=140e467990a406f7e320c3eb5a051fad03333d55619c407509fe32702044c62b&o=&hp=1"
-        },
-        {
-            src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/90028655.jpg?k=6a3b18d7b176a54cb800167d4091cad421f3ab4058b47950ae5c27f35c66f594&o=&hp=1"
-        },
-        {
-            src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/111763599.jpg?k=1557deb3c87703c3e1c28134df75cd0bad54b42303d808328e8f1a4448237b63&o=&hp=1"
-        },
-        {
-            src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/74045535.jpg?k=380bcba56eb37c5731e972c26cac2b804d67c0b16f288df0c390ef748acd222a&o=&hp=1"
-        }
-    ]
+    const {data,loading,error} = useFetch(`/hotels/find/${id}`)
 
     const handleOpen = (i)=>{
         setSlideNum(i)
@@ -53,51 +40,43 @@ const Hotel = () => {
         <div>
             <Navbar/>
             <Header type="list"/>
+            {loading ? (
+                "loading"
+            ) : (
             <div className="hotelContainer">
                 {open && <div className="slider">
                     <FontAwesomeIcon icon={faCircleXmark} className="close" onClick={()=>setOpen(false)}/>
                     <FontAwesomeIcon icon={faCircleArrowLeft} className="arrow" onClick={()=>handleMove("l")}/>
                     <div className="sliderWrapper">
-                        <img src={photos[slideNum].src} alt="" className="sliderImg" />
+                        <img src={data.photos[slideNum]} alt="" className="sliderImg" />
                     </div>
                     <FontAwesomeIcon icon={faCircleArrowRight} className="arrow" onClick={()=>handleMove("r")}/>
                 </div>}
                 <div className="hotelWrapper">
                     <button className="bookNow">Reserve or Book Now!</button>
-                    <h1 className="hotelTitle">Sugar Loft Apartments</h1>
+                    <h1 className="hotelTitle">{data.name}</h1>
                     <div className="hotelAdress">
                         <FontAwesomeIcon icon={faLocationDot}/>
-                        <span>Rua Dias de Barros, 11, Santa Teresa, Rio de Janeiro, CEP 20241-020, Brazil</span>
+                        <span>{data.address}</span>
                     </div>
                     <span className="hotelDist">
-                        Excellent location - 500m from center
+                        Excellent location - {data.distance}m from center
                     </span>
                     <span className="hotelPriceHighlight">
-                        Book a stay over $123 at this property and get a free airport taxi
+                        Book a stay over ${data.cheapestPrice} at this property and get a free airport taxi
                     </span>
                     <div className="hotelImgs">
-                        {photos.map((photos, i)=>(
+                        {data.photos?.map((photos, i)=>(
                             <div className="hotelImgWrapper">
-                                <img onClick={()=>handleOpen(i)} src={photos.src} alt="Sugar Loft Apartments Img" className="hotelImg" />
+                                <img onClick={()=>handleOpen(i)} src={photos} alt="Sugar Loft Apartments Img" className="hotelImg" />
                             </div>
                         ))}
                     </div>
                     <div className="hotelDetails">
                         <div className="hotelDetailsText">
-                            <h1 className="hotelTitle">Lorem ipsum, dolor sit amet</h1>
+                            <h1 className="hotelTitle">{data.title}</h1>
                             <p className="hotelDesc">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Quos, quidem? Excepturi vero, magnam tenetur, repellendus 
-                                fugiat nesciunt sit reprehenderit, dolore ullam rerum nihil 
-                                voluptatibus nobis sequi aperiam pariatur accusantium deleniti. 
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Quos, quidem? Excepturi vero, magnam tenetur, repellendus 
-                                fugiat nesciunt sit reprehenderit, dolore ullam rerum nihil 
-                                voluptatibus nobis sequi aperiam pariatur accusantium deleniti. 
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Quos, quidem? Excepturi vero, magnam tenetur, repellendus 
-                                fugiat nesciunt sit reprehenderit, dolore ullam rerum nihil 
-                                voluptatibus nobis sequi aperiam pariatur accusantium deleniti.
+                                {data.desc}
                             </p>
                         </div>
                         <div className="hotelDetailsPrice">
@@ -117,7 +96,7 @@ const Hotel = () => {
                     <MailList/>
                     <Footer/>
                 </div>
-            </div>
+            </div>)}
         </div>
     )
 }
