@@ -5,9 +5,10 @@ import MailList from "../../components/mailList/MailList.jsx"
 import Footer from "../../components/footer/Footer.jsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleArrowLeft, faCircleArrowRight, faCircleXmark, faLocationDot } from "@fortawesome/free-solid-svg-icons"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import useFetch from "../../hooks/useFetch.js"
 import { useLocation } from "react-router-dom"
+import { SearchContext } from "../../context/SearchContext.js"
 
 const Hotel = () => {
     const location = useLocation()
@@ -17,7 +18,18 @@ const Hotel = () => {
     const[slideNum, setSlideNum] = useState(0)
     const[open, setOpen] = useState(false)
 
-    const {data,loading,error} = useFetch(`/hotels/find/${id}`)
+    const {data, loading, error} = useFetch(`/hotels/find/${id}`)
+
+    const {dates, options} = useContext(SearchContext)
+    
+    const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    function dayDifference(date1, date2) {
+        const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+        return diffDays;
+    }
+
+    const days = (dayDifference(dates[0].endDate, dates[0].startDate))
 
     const handleOpen = (i)=>{
         setSlideNum(i)
@@ -80,13 +92,13 @@ const Hotel = () => {
                             </p>
                         </div>
                         <div className="hotelDetailsPrice">
-                            <h1>Perfect for a 9-night stay!</h1>
+                            <h1>Perfect for a {days}-night stay!</h1>
                             <span>
                                 Lorem ipsum dolor sit amet consectetur adipisicing, 
                                 this property has an excellent score of 8.9!
                             </span>
                             <h2>
-                                <b>$1107</b> (9 nights)
+                                <b>${days * data.cheapestPrice * options.room}</b> ({days} nights)
                             </h2>
                             <button>Reserve or Book Now!</button>
                         </div>
