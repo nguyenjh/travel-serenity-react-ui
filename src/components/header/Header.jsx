@@ -8,6 +8,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from "date-fns"
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({type}) => {
     // calender function
@@ -29,6 +30,8 @@ const Header = ({type}) => {
     })
 
     const navigate = useNavigate()
+
+    const {user} = useContext(AuthContext)
 
     // increase/decrease adult/children/room option
     const handleOption = (name, operation) =>{
@@ -80,7 +83,7 @@ const Header = ({type}) => {
                 <>
                 <h1 className="headerTitle">Lorem ipsum dolor!</h1>
                 <p className="headerDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolorum iure explicabo eveniet aut minus?</p>
-                <button className="headerBtn">Sign In / Register</button>
+                {!user && <button className="headerBtn">Sign In / Register</button>}
                 <div className="headerSearch">
 
                     {/* search bar */}
