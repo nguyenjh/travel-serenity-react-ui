@@ -78,7 +78,7 @@ const Hotel = () => {
                     <FontAwesomeIcon icon={faCircleArrowRight} className="arrow" onClick={()=>handleMove("r")}/>
                 </div>}
                 <div className="hotelWrapper">
-                    <button className="bookNow">Reserve or Book Now!</button>
+                    <button onClick={handleClick} className="bookNow">Reserve or Book Now!</button>
                     <h1 className="hotelTitle">{data.name}</h1>
                     <div className="hotelAdress">
                         <FontAwesomeIcon icon={faLocationDot}/>
@@ -93,7 +93,7 @@ const Hotel = () => {
                     <div className="hotelImgs">
                         {data.photos?.map((photos, i)=>(
                             <div className="hotelImgWrapper">
-                                <img onClick={()=>handleOpen(i)} src={photos} alt="Sugar Loft Apartments Img" className="hotelImg" />
+                                <img onClick={()=>handleOpen(i)} src={photos} alt="" className="hotelImg" />
                             </div>
                         ))}
                     </div>
