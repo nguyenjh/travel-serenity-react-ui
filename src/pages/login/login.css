@@ -1,32 +1,79 @@
 .login {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .lContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .lInput{
-    height: 30px;
-    padding: 10px;
-  }
-  
-  .lBtn {
-    border: none;
-    padding: 10px 20px;
-    background-color: #0D1F22;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .lButton:disabled{
-    background-color: #0071c28c;
-    cursor: not-allowed;
-  }
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #0D1F22;
+  gap: 20px;
+}
+
+.lLogo {
+  font-weight: bold;
+  background-color: white;
+  color: #0D1F22;
+  padding: 15px;
+  position: relative;
+  bottom: 20px;
+  outline: 8px inset #0D1F22;
+}
+
+.lTitle {
+  display: flex;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+.lContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  outline: 8px inset #0D1F22;
+  padding: 20px;
+  background-color: white;
+  width: 300px;
+}
+
+.lInput {
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.passwordContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.lPasswordInput {
+  height: 40px;
+  padding: 10px;
+  flex: 1;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.passwordIcon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.lBtn {
+  border: none;
+  padding: 10px 20px;
+  background-color: #0D1F22;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lBtn:disabled {
+  background-color: #0071c28c;
+  cursor: not-allowed;
+}

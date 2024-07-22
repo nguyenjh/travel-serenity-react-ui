@@ -12,6 +12,11 @@ const Navbar = () => {
 
     const navigate = useNavigate()
 
+    const handleRegister = async e => {
+        e.preventDefault()
+        navigate("/register")
+    }
+
     const handleLogin = async e => {
         e.preventDefault()
         navigate("/login")
@@ -30,7 +35,7 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div className="navItems">
-                        <button className="navButton">Register</button>
+                        <button onClick={handleRegister} className="navButton">Register</button>
                         <button onClick={handleLogin} className="navButton">Login</button>
                     </div>
                 )}

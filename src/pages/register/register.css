@@ -1,0 +1,74 @@
+.register {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0D1F22;
+    gap: 20px;
+}
+
+.rLogo{
+    font-weight: bold;
+    background-color: white;
+    color: #0D1F22;
+    padding: 15px;
+    position: relative;
+    bottom: 20px;
+    outline: 8px inset #0D1F22;
+  }
+
+.rTitle {
+    display: flex;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.rContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    outline: 8px inset #0D1F22;
+    padding: 20px;
+    background-color: white;
+    width: 300px;
+}
+
+.rInput {
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.passwordContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.rPasswordInput {
+    height: 40px;
+    padding: 10px;
+    flex: 1;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.passwordIcon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.rBtn {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0D1F22;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}

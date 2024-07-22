@@ -48,6 +48,11 @@ const Header = ({type}) => {
         navigate("/hotels", {state:{destination,dates,options}})
     }
 
+    const handleRegister = async e => {
+        e.preventDefault()
+        navigate("/register")
+    }
+
     return (
         // header
         <div className="header">
@@ -83,7 +88,7 @@ const Header = ({type}) => {
                 <>
                 <h1 className="headerTitle">Lorem ipsum dolor!</h1>
                 <p className="headerDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolorum iure explicabo eveniet aut minus?</p>
-                {!user && <button className="headerBtn">Sign In / Register</button>}
+                {!user && <button onClick={handleRegister} className="headerBtn">Sign In / Register</button>}
                 <div className="headerSearch">
 
                     {/* search bar */}
