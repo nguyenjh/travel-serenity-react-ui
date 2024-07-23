@@ -9,6 +9,7 @@ import List from "./pages/list/List.jsx";
 import Hotel from "./pages/hotel/Hotel.jsx";
 import Login from "./pages/login/Login.jsx";
 import Register from "./pages/register/Register.jsx";
+import Payment from "./pages/payment/Payment.jsx";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/hotels/:id" element={<Hotel/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/payment" element={<Payment/>}/>
         </Routes>
       </BrowserRouter>
     );

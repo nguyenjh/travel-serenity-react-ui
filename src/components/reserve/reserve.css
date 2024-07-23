@@ -10,10 +10,11 @@
     justify-content: center;
 }
 
-.rContainer{
+.reContainer{
     background-color: white;
     padding: 20px;
     position: relative;
+    outline: 8px inset #0D1F22;
 }
 
 .rClose{

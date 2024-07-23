@@ -1,0 +1,71 @@
+.payment{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0D1F22;
+    gap: 20px;
+}
+
+.pContainer{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 20px;
+    outline: 8px inset #0D1F22;
+    padding: 20px;
+    background-color: white;
+}
+
+.pTitle{
+    font-size: 30px;
+    text-decoration: underline;
+    display: flex;
+}
+
+.pNameContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.pCardContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.pExpireAndSecCodeContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pExpireContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.pExpireInput{
+    width: 100px;
+}
+
+.pSecCodeContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.pSecCodeInput{
+    width: 100px;
+}
+
+.pBtn{
+    display: flex;
+    justify-content: center;
+    border: none;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #0D1F22;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
