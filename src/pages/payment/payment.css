@@ -2,7 +2,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-top: 100px;
     flex-direction: column;
     background-color: #0D1F22;
     gap: 20px;
@@ -32,6 +32,17 @@
 .pCardContainer{
     display: flex;
     flex-direction: column;
+}
+
+.pCardTitleAndIcons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pCardIcons{
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
 }
 
 .pExpireAndSecCodeContainer{
