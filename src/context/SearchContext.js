@@ -8,6 +8,7 @@ const INITIAL_STATE = {
         children: undefined,
         room: undefined
     },
+    selected: [],
 }
 
 export const SearchContext = createContext(INITIAL_STATE)
@@ -18,6 +19,11 @@ const SearchReducer = (state,action) =>{
             return action.payload
         case "RESET_SEARCH":
             return INITIAL_STATE
+        case "SET_SELECTED_ROOMS":
+            return {
+                ...state,
+                selected: action.payload,
+            }
         default:
             return state
     }
@@ -30,7 +36,8 @@ export const SearchContextProvider = ({children}) =>{
         <SearchContext.Provider value={{
             city: state.city, 
             dates: state.dates, 
-            options: state.options, 
+            options: state.options,
+            selected: state.selected, 
             dispatch
             }}
         >

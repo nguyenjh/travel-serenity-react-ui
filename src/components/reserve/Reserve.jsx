@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom"
 const Reserve = ({setOpen, hotelId}) => {
     const [selectedRooms, setSelectedRooms] = useState([])
     const {data, loading, error} = useFetch(`/hotels/room/${hotelId}`)
-    const {dates} = useContext(SearchContext)
+    const {dates, selected, dispatch} = useContext(SearchContext)
 
     const getDatesInRange = (startDate,endDate)=>{
         const start = new Date(startDate)
@@ -31,6 +31,25 @@ const Reserve = ({setOpen, hotelId}) => {
         return !isFound
     }
 
+    const handleRoomSelection = (updatedSelectedRoomIds) => {
+        const updatedSelectedRooms = data
+            // Flatten the array of room numbers
+            .flatMap(room => room.roomNumbers)
+            .filter(roomNumber => updatedSelectedRoomIds.includes(roomNumber._id))
+            .map(roomNumber => {
+                const room = data.find(item => item.roomNumbers.some(rn => rn._id === roomNumber._id));
+                return {
+                    _id: room._id,
+                    number: roomNumber.number,
+                    title: room.title,
+                    desc: room.desc,
+                    price: room.price,
+                    days: allDates.length-1
+                };
+            });
+        dispatch({ type: "SET_SELECTED_ROOMS", payload: updatedSelectedRooms });
+    };
+
     const handleSelect = (e)=>{
         // checks if it has been selected or not
         const checked = e.target.checked
@@ -38,7 +57,12 @@ const Reserve = ({setOpen, hotelId}) => {
         const value = e.target.value
         // if room is selected, add to array of prev selectedRooms
         // if room not selected, filter out that room
-        setSelectedRooms(checked ? [...selectedRooms, value] : selectedRooms.filter((item)=>item !== value))
+        const updatedSelectedRoomIds = checked
+            ? [...selectedRooms, value]
+            : selectedRooms.filter((item) => item !== value)
+
+        setSelectedRooms(updatedSelectedRoomIds)
+        handleRoomSelection(updatedSelectedRoomIds)
     }
 
     const navigate = useNavigate()
@@ -50,7 +74,7 @@ const Reserve = ({setOpen, hotelId}) => {
                 return res.data
             }))
             setOpen(false)
-            navigate("/payment")
+            navigate(`/hotels/${hotelId}/payment`)
         } catch(err) {}
     }
 

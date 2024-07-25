@@ -1,8 +1,8 @@
 .payment{
-    height: 100vh;
+    height: 120vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 70px;
     flex-direction: column;
     background-color: #0D1F22;
     gap: 20px;
@@ -22,6 +22,19 @@
     font-size: 30px;
     text-decoration: underline;
     display: flex;
+}
+
+.pTotalContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.pTotalText{
+    font-size: 20px;
+}
+
+.pTotal{
+    font-size: 20px;
 }
 
 .pNameContainer{

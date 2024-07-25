@@ -20,7 +20,7 @@ function App() {
             <Route path="/hotels/:id" element={<Hotel/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
-            <Route path="/payment" element={<Payment/>}/>
+            <Route path="/hotels/:id/payment" element={<Payment/>}/>
         </Routes>
       </BrowserRouter>
     );
