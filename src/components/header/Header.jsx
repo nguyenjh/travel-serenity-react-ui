@@ -86,8 +86,8 @@ const Header = ({type}) => {
                 </div>
                 { type !== "list" &&
                 <>
-                <h1 className="headerTitle">Lorem ipsum dolor!</h1>
-                <p className="headerDesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolorum iure explicabo eveniet aut minus?</p>
+                <h1 className="headerTitle">Discover Your Perfect Stay</h1>
+                <p className="headerDesc">Book with Ease, Travel with Confidence, and Experience Unforgettable Adventures Every Time You Stay with Us.</p>
                 {!user && <button onClick={handleRegister} className="headerBtn">Sign In / Register</button>}
                 <div className="headerSearch">
 

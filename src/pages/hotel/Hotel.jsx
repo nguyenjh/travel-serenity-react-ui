@@ -107,8 +107,7 @@ const Hotel = () => {
                         <div className="hotelDetailsPrice">
                             <h1>Perfect for a {days}-night stay!</h1>
                             <span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing, 
-                                this property has an excellent score of 8.9!
+                                Whether you’re here for business or leisure, {data.name} promises an unforgettable stay. Book now and experience the serene elegance that our guests love.
                             </span>
                             <h2>
                                 <b>${days * data.cheapestPrice * options.room}</b> ({days} nights)
