@@ -36,6 +36,7 @@
 .fpPrice{
     font-weight: 500;
     margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .fpRating>button{
