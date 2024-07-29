@@ -29,7 +29,7 @@ const SearchItem = ({item}) => {
                     <span className="siPrice">${item.cheapestPrice}</span>
                     <span className="siTaxOpt">Includes taxes and fees</span>
                     <Link to={`/hotels/${item._id}`}>
-                        <button className="siCheckBtn">See availability</button>
+                        <button className="siCheckBtn">See Availability</button>
                     </Link>
                 </div>
             </div>
