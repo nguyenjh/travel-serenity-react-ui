@@ -4,20 +4,6 @@ import { faHotel, faPlaneDeparture } from "@fortawesome/free-solid-svg-icons"
 
 const Savings = () => {
     return (
-        // <div className="savings">
-        //     <div className="savingsContainer">
-        //         <div className="savingsOfferContainer">
-        //             <div className="SOText">Fly away to your dream vacation</div>
-        //             <div className="SOSubtitle">Get inspired - compare and book flights with flexibility</div>
-        //             <button className="SOBtn">Search for flights</button>
-        //         </div>
-        //         <div className="savingsOfferContainer">
-        //             <div className="SOText">Seize the moment!</div>
-        //             <div className="SOSubtitle">Save 15% or more when you book and stay before October 1, 2024</div>
-        //             <button className="SOBtn">Find Getaway Deals</button>
-        //         </div>
-        //     </div>
-        // </div>
         <div class="savings">
             <div className="savingsContainer">
                 <div className="savingsItem">
