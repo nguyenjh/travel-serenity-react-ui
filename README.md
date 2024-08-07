@@ -1,4 +1,4 @@
-# Travel Serenity (Frontend)
+# Travel Serenity (Front-end)
 MERN Stack Hotel Booking Website
 
 ## Description:
@@ -54,5 +54,5 @@ Express server with multiple routes:
 
 ## Repositories:
 
-- Front End: [This Current GitHub Repository](https://github.com/nguyenjh/travel-serenity-react-ui)
-- Back End: [GitHub Repository](https://github.com/nguyenjh/travel-serenity)
+- Front-End: [This Current GitHub Repository](https://github.com/nguyenjh/travel-serenity-react-ui)
+- Back-End: [GitHub Repository](https://github.com/nguyenjh/travel-serenity)
