@@ -20,10 +20,10 @@ Travel Serenity is a comprehensive web application that allows users to search, 
 - HTML
 - CSS
 
-### Front End:
+### Front-End:
 The front-end is developed in React.js, utilizing the create-react-app boilerplate. The user interface is designed to be responsive and intuitive, ensuring a smooth user experience across different devices.
 
-### Back End:
+### Back-End:
 The back-end is built using Node.js and Express.js, with a MongoDB database to store user, hotel, and room information. The application uses JWT and cookies for secure authentication and state management.
 
 ## Design:
