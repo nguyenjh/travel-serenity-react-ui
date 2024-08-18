@@ -1,4 +1,4 @@
-# Travel Serenity (Front-End)
+# Travel Serenity React UI
 MERN Stack Hotel Booking Website
 
 ## Description:
